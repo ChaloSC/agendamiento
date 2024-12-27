@@ -1,0 +1,83 @@
+/* Modo Claro (Colores por defecto) */
+:root {
+  --sx-color-primary: #6750a4;
+  --sx-color-on-primary: #fff;
+  --sx-color-primary-container: #eaddff;
+  --sx-color-on-primary-container: #21005e;
+  --sx-color-secondary: #625b71;
+  --sx-color-on-secondary: #fff;
+  --sx-color-secondary-container: #e8def8;
+  --sx-color-on-secondary-container: #1e192b;
+  --sx-color-tertiary: #7d5260;
+  --sx-color-on-tertiary: #fff;
+  --sx-color-tertiary-container: #ffd8e4;
+  --sx-color-on-tertiary-container: #370b1e;
+  --sx-color-surface: #fef7ff;
+  --sx-color-surface-dim: #ded8e1;
+  --sx-color-surface-bright: #fef7ff;
+  --sx-color-on-surface: #1c1b1f;
+  --sx-color-surface-container: #f3edf7;
+  --sx-color-surface-container-low: #f7f2fa;
+  --sx-color-surface-container-high: #ece6f0;
+  --sx-color-background: #fff;
+  --sx-color-on-background: #1c1b1f;
+  --sx-color-outline: #79747e;
+  --sx-color-outline-variant: #c4c7c5;
+  --sx-color-shadow: #000;
+  --sx-color-surface-tint: #6750a4;
+  --sx-color-neutral: var(--sx-color-outline);
+  --sx-color-neutral-variant: var(--sx-color-outline-variant);
+  --sx-internal-color-light-gray: #fafafa;
+  --sx-internal-color-text: #000;
+}
+
+/* Modo Oscuro */
+body.dark-mode {
+  --sx-color-primary: #a77ef9;
+  --sx-color-on-primary: #fff;
+  --sx-color-primary-container: #6f4b98;
+  --sx-color-on-primary-container: #fff;
+  --sx-color-secondary: #c1b1cc;
+  --sx-color-on-secondary: #fff;
+  --sx-color-secondary-container: #484152;
+  --sx-color-on-secondary-container: #fff;
+  --sx-color-tertiary: #9c6a7b;
+  --sx-color-on-tertiary: #fff;
+  --sx-color-tertiary-container: #5e2a2d;
+  --sx-color-on-tertiary-container: #f0e0e3;
+  --sx-color-surface: #181818;
+  --sx-color-surface-dim: #2d2d2d;
+  --sx-color-surface-bright: #2b2b2b;
+  --sx-color-on-surface: #e5e7eb;
+  --sx-color-surface-container: #262626;
+  --sx-color-surface-container-low: #323232;
+  --sx-color-surface-container-high: #4a4a4a;
+  --sx-color-background: #121212;
+  --sx-color-on-background: #e5e7eb;
+  --sx-color-outline: #444444;
+  --sx-color-outline-variant: #c4c7c5;
+  --sx-color-shadow: rgba(0, 0, 0, 0.7);
+  --sx-color-surface-tint: #a77ef9;
+  --sx-color-neutral: #969494;
+  --sx-color-neutral-variant: #676767;
+  --sx-internal-color-light-gray: #333;
+  --sx-internal-color-text: #e5e7eb;
+}
+
+
+.sx__calendar {
+  border: none;
+  border-radius: 0px;
+}
+
+.sx__event-modal.sx__event-modal-default.is-open {
+  border: 2px solid gray;
+  font-family: "Arial", sans-serif;
+  overflow-y: hidden;
+}
+
+.sx__view-selection-items {
+  border: 2px solid gray;
+  border-radius: 2px;
+}
+

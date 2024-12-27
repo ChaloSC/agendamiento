@@ -12,7 +12,9 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [theme, setTheme] = useState<Theme>(localStorage.getItem("theme") as Theme || "light");
+  const [theme, setTheme] = useState<Theme>(
+    (localStorage.getItem("theme") as Theme) || "light"
+  );
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
@@ -26,8 +28,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      document.body.classList.add("dark-mode"); // Agrega modo Oscuro para Scheduler-X
     } else {
       document.documentElement.classList.remove("dark");
+      document.body.classList.remove("dark-mode"); // Remueve modo Oscuro para Scheduler-X
     }
     localStorage.setItem("theme", theme);
   }, [theme]);

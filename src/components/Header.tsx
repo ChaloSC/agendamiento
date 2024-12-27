@@ -42,16 +42,16 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out shadow-md
       ${
         isScrolled
-          ? "py-2 bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm"
-          : "py-4 bg-white/80 dark:bg-gray-800/90"
+          ? "py-2 bg-white/60 dark:bg-neutral-950/50 backdrop-blur-sm"
+          : "py-4 bg-white/80 dark:bg-neutral-950 shadow-full-shadow"
       }
       `}
     >
       <div className="container mx-auto">
         <div
           className={`flex justify-between items-center ${
-            isScrolled ? "px-2" : ""
-          }`}
+            isHomePage && "px-4"
+          } px-4`}
         >
           <div className="flex items-center">
             {!isHomePage && (
@@ -93,11 +93,33 @@ export default function Header() {
             </Link>
           </div>
           <div className="flex items-center">
+            <nav
+              className={`${
+                isMenuOpen
+                  ? "block bg-white/95 dark:bg-gray-800/95 justify-items-center text-lg transition-all duration-500 ease-in-out"
+                  : "hidden"
+              } md:block absolute md:relative top-full left-0 w-full md:w-auto z-50`}
+            >
+              <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 p-4 md:p-0">
+                {links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.href}
+                      className={`text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 ease-in-out ${
+                        isScrolled ? "text-xs" : "text-sm"
+                      } ${isWideScreen ? "hover:underline" : ""}`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
             <Button
               onClick={toggleTheme}
               variant="ghost"
               size={isScrolled ? "sm" : "icon"}
-              className={`mr-2 transition-all duration-300 ${
+              className={`ml-2 transition-all duration-300 ${
                 isScrolled ? "p-1" : ""
               }`}
             >
@@ -141,28 +163,6 @@ export default function Header() {
                 {isMenuOpen ? "Cerrar menú" : "Abrir menú"}
               </span>
             </Button>
-            <nav
-              className={`${
-                isMenuOpen
-                  ? "block bg-white/95 dark:bg-gray-800/95 justify-items-center text-lg transition-all duration-500 ease-in-out"
-                  : "hidden"
-              } md:block absolute md:relative top-full left-0 w-full md:w-auto z-50`}
-            >
-              <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 p-4 md:p-0">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className={`text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 ease-in-out ${
-                        isScrolled ? "text-xs" : "text-sm"
-                      } ${isWideScreen ? "hover:underline" : ""}`}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
           </div>
         </div>
       </div>

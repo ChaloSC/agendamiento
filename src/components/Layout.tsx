@@ -29,11 +29,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <Header />
       <div
         className={`flex flex-grow ${
-          isScrolled ? "mt-10" : "mt-14"
+          isScrolled ? "mt-[50px]" : "mt-[70px]"
         } transition-all duration-300 ease-in-out`}
       >
         {!isHomePage && <Sidebar />}
