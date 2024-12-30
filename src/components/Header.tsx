@@ -42,7 +42,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out shadow-md
       ${
         isScrolled
-          ? "py-2 bg-white/60 dark:bg-neutral-950/50 backdrop-blur-sm"
+          ? "py-2 bg-white/60 dark:bg-neutral-950/70 backdrop-blur-sm"
           : "py-4 bg-white/80 dark:bg-neutral-950 shadow-full-shadow"
       }
       `}
@@ -89,7 +89,9 @@ export default function Header() {
                 isScrolled ? "text-xl" : "text-2xl"
               }`}
             >
-              AgendaPro
+              <span className="bg-gradient-to-r from-neutral-900 via-yellow-400 to-yellow-600 bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-neutral-100 dark:via-purple-400 dark:to-purple-600 dark:bg-clip-text dark:text-transparent">
+                QuickGenda
+              </span>
             </Link>
           </div>
           <div className="flex items-center">

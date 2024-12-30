@@ -8,9 +8,9 @@ export default function Footer() {
           <div className="mb-4 md:mb-0">
             <a
               href="/"
-              className="text-xl font-bold text-primary dark:text-white"
+              className="text-xl font-bold bg-gradient-to-r from-neutral-900 via-yellow-400 to-yellow-600 bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-neutral-100 dark:via-purple-400 dark:to-purple-600 dark:bg-clip-text dark:text-transparent"
             >
-              AgendaPro
+              QuickGenda
             </a>
           </div>
           <nav className="flex space-x-4">
@@ -29,7 +29,8 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          © {new Date().getFullYear()} AgendaPro. Todos los derechos reservados.
+          © {new Date().getFullYear()}. Todos los derechos
+          reservados.
         </div>
       </div>
     </footer>

@@ -1,75 +1,87 @@
-import React, { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
-import { Calendar } from "./ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Crown } from "lucide-react";
+import { useInView } from "react-intersection-observer";
 
-export default function AppointmentForm() {
-  const [date, setDate] = useState<Date | undefined>();
+const steps = [
+  {
+    id: "01",
+    title: "Regístrate",
+    description: "Crea tu cuenta en menos de 2 minutos",
+  },
+  {
+    id: "02",
+    title: "Configura tu agenda",
+    description: "Define tus horarios y servicios disponibles",
+  },
+  {
+    id: "03",
+    title: "Comparte tu link",
+    description: "Envía tu link de agenda a tus clientes",
+  },
+  {
+    id: "04",
+    title: "Listo",
+    description: "Deja que la magia suceda",
+  },
+];
 
+const AppointmentForm = () => {
+  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   return (
-    <section id="appointment" className="py-20 bg-gray-50 dark:bg-neutral-800">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-          Agenda tu cita
-        </h2>
-        <form className="max-w-md mx-auto space-y-4">
-          <Input
-            type="text"
-            placeholder="Nombre completo"
-            required
-            className="bg-white dark:bg-neutral-700 text-gray-900 dark:text-white"
-          />
-          <Input
-            type="email"
-            placeholder="Correo electrónico"
-            required
-            className="bg-white dark:bg-neutral-700 text-gray-900 dark:text-white"
-          />
-          <Select>
-            <SelectTrigger className="bg-white dark:bg-neutral-700 text-gray-900 dark:text-white">
-              <SelectValue placeholder="Tipo de servicio" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="consulta">Consulta general</SelectItem>
-              <SelectItem value="revision">Revisión</SelectItem>
-              <SelectItem value="tratamiento">Tratamiento</SelectItem>
-            </SelectContent>
-          </Select>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                className="w-full justify-start text-left font-normal bg-white dark:bg-neutral-700 text-gray-900 dark:text-white"
-              >
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : <span>Selecciona una fecha</span>}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                initialFocus
-                className="bg-white dark:bg-gray-800 text-neutral-600 dark:text-gray-300"
-              />
-            </PopoverContent>
-          </Popover>
-          <Button type="submit" className="w-full">
-            Agendar cita
+    <div className="bg-gray-50 dark:bg-gradient-to-b from-neutral-700 via-neutral-800 to-neutral-900 py-24 sm:py-32">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-7xl px-6 lg:px-8 text-center ${
+          inView && "animate-fade-down duration-700 "
+        } `}
+      >
+        <h2 className="text-lg font-semibold text-primary">Proceso Simple</h2>
+        <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl ">
+          ¿Cómo funciona?
+        </p>
+        <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
+          Comienza a usar nuestro sistema de agendamiento en tres simples pasos
+        </p>
+
+        <dl className="mt-16 grid gap-16 lg:grid-cols-4">
+          {steps.map(({ id, title, description }) => (
+            <div key={id} className="flex flex-col items-center">
+              <div className="flex items-center gap-3">
+                <div
+                  className={`relative h-12 w-12 flex items-center justify-center rounded-lg bg-primary text-white dark:text-black ${
+                    id === "04" && "bg-yellow-400 text-black"
+                  }`}
+                >
+                  {id === "04" && (
+                    <Crown className="absolute bottom-12 h-10 w-10 animate-bounce duration-800 ease-in-out text-yellow-500 " />
+                  )}
+                  {id}
+                </div>
+                <span className="text-base font-semibold text-gray-900 dark:text-white">
+                  {title}
+                </span>
+              </div>
+              <p className="mt-4 text-base text-gray-600 dark:text-gray-300">
+                {description}
+              </p>
+            </div>
+          ))}
+        </dl>
+
+        <div className="mt-16">
+          <Button asChild size="lg">
+            <a
+              href="#appointment"
+              className="group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 dark:ring-neutral-700 flex items-center transition-all"
+            >
+              Comienza ahora
+              <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-300 ease-in-out group-hover:translate-x-1.5" />
+            </a>
           </Button>
-        </form>
+        </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default AppointmentForm;

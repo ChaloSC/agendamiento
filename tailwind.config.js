@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   darkMode: ["class"], // o 'media' si quieres que siga la preferencia del sistema
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -74,6 +75,6 @@ export default {
       };
       addUtilities(newUtilities);
     },
-    require("tailwindcss-animate"),
+    require("tailwindcss-animated"),
   ],
 };
