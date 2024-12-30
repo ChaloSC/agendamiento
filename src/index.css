@@ -50,6 +50,11 @@
   --radius: 0.5rem;
 }
 
+html,
+body {
+  scroll-behavior: smooth !important;
+}
+
 :root {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */

@@ -5,13 +5,11 @@ import imgBanner from "../assets/schedule-banner.png";
 import { useInView } from "react-intersection-observer";
 
 const Hero: React.FC = () => {
-  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
+  const { ref, inView } = useInView({ triggerOnce: true });
   const { ref: ref2, inView: inView2 } = useInView({
-    threshold: 0.5,
     triggerOnce: true,
   });
   const { ref: ref3, inView: inView3 } = useInView({
-    threshold: 0.5,
     triggerOnce: true,
   });
 
@@ -21,12 +19,12 @@ const Hero: React.FC = () => {
         <div
           ref={ref}
           className={`lg:w-1/2 text-center lg:text-left ${
-            inView && "animate-fade-right duration-700 "
+            inView && "animate-fade-right duration-700 z-20"
           }`}
         >
           <h1 className="relative text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-gray-900 dark:text-white">
             Administra tu agenda en segundos y{" "}
-            <span className="vibrate-3-normal absolute animate-pulse ml-4 mt-2 text-yellow-400 dark:text-purple-500">
+            <span className="vibrate-3-normal absolute animate-pulse ml-2 mt-2 text-yellow-400 dark:text-purple-500">
               Gratis!
             </span>
           </h1>
@@ -53,8 +51,8 @@ const Hero: React.FC = () => {
         </div>
         <div
           ref={ref3}
-          className={`lg:w-1/2 mt-12 lg:mt-0 ${
-            inView3 && "animate-fade-left duration-700 "
+          className={`lg:w-1/2 mt-16 lg:mt-0 ${
+            inView3 && "animate-fade-left duration-700 z-10"
           }`}
         >
           <img

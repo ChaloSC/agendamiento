@@ -26,15 +26,15 @@ const steps = [
 ];
 
 const AppointmentForm = () => {
-  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
+  const { ref, inView } = useInView({ triggerOnce: true });
   return (
-    <div className="bg-gray-50 dark:bg-gradient-to-b from-neutral-700 via-neutral-800 to-neutral-900 py-24 sm:py-32">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-7xl px-6 lg:px-8 text-center ${
-          inView && "animate-fade-down duration-700 "
-        } `}
-      >
+    <div
+      ref={ref}
+      className={`bg-gray-50 dark:bg-gradient-to-b from-neutral-700 via-neutral-800 to-neutral-900 py-24 sm:py-32 ${
+        inView && "animate-fade-down duration-700 "
+      }`}
+    >
+      <div ref={ref} className={`mx-auto max-w-7xl px-6 lg:px-8 text-center `}>
         <h2 className="text-lg font-semibold text-primary">Proceso Simple</h2>
         <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl ">
           ¿Cómo funciona?
@@ -43,9 +43,9 @@ const AppointmentForm = () => {
           Comienza a usar nuestro sistema de agendamiento en tres simples pasos
         </p>
 
-        <dl className="mt-16 grid gap-16 lg:grid-cols-4">
+        <dl className="mt-16 grid gap-16 mx-auto w-fit lg:grid-cols-4">
           {steps.map(({ id, title, description }) => (
-            <div key={id} className="flex flex-col items-center">
+            <div key={id} className="flex flex-col items-start lg:items-center">
               <div className="flex items-center gap-3">
                 <div
                   className={`relative h-12 w-12 flex items-center justify-center rounded-lg bg-primary text-white dark:text-black ${
@@ -53,7 +53,7 @@ const AppointmentForm = () => {
                   }`}
                 >
                   {id === "04" && (
-                    <Crown className="absolute bottom-12 h-10 w-10 animate-bounce duration-800 ease-in-out text-yellow-500 " />
+                    <Crown className="absolute bottom-12 h-10 w-10 animate-bounce duration-800 ease-in-out text-yellow-500" />
                   )}
                   {id}
                 </div>

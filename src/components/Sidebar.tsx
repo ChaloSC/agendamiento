@@ -16,7 +16,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <aside
-      className={`w-40 z-[40] bg-gray-100/95 dark:bg-gray-800/95 fixed h-full overflow-auto transition-all duration-300 ease-in-out ${
+      className={`w-40 z-[40] bg-gray-100/95 dark:bg-neutral-900/95 fixed h-full overflow-auto transition-all duration-300 ease-in-out ${
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
